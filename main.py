@@ -1,8 +1,24 @@
 # Import random module to generate a random number
 
-# Function to get a valid integer input with error handling
+import random
 
-# Function to get a valid 'y' or 'n' response from the user
+# Function to get a valid integer input with error handling
+number = random.randint(1, 100)
+guess = 0
+
+while guess != number:
+    guess = int(
+        input("Welcome to the number guessing game, guess a number between 1 and 100:")
+    )
+    if guess < number:
+        print("The number that you guessed is too low!")
+    elif guess > number:
+        print("The number that you guessed is too high!")
+    else:
+        print("Congratulations! You've guessed the number correctly!")
+
+# Function to get a valid 'y' or 'n' response from the user 
+
 
 # Function to play one round of the game
 
