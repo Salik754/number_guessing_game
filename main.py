@@ -22,4 +22,16 @@ def get_valid_yes_no(prompt):
             print("Please enter 'y' for yes or 'n' for no.")
 
 #A FUNCTION THAT PLAYS one RoUND only
-def play_game
+def play_game():
+    #ask them to select a number range
+    low = get_valid_int("Enter the lowest number of the range: ")
+    high = get_valid_int("Enter the highest number of the range: ")
+
+
+#gonna ask for attempts
+max_attempts = get_valid_int("How many attempts do you want? ")
+
+#generate a random number
+secret_number = random.randint(low, high)
+#the number of attempts used
+attempts_used = 0
