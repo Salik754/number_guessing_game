@@ -40,9 +40,8 @@ def play():
 player_score = 0
 computer_score = 0
 
-# Play 3 rounds
-for round_num in range(1, 4):
-    print(f"\n--- Round {round_num} ---")
+ # make a loop first
+while player_score < 3 and computer_score < 3:
     result = play()
     if result == 1:
         print("You win this round!")
@@ -52,10 +51,6 @@ for round_num in range(1, 4):
         computer_score += 1
     else:
         print("It's a tie! No points awarded.")
-
-# Print final score and say goodbye
-print(f"\nFinal score: You {player_score} - Computer {computer_score}")
-print("Thanks for playing! Goodbye!")
     
 
 #print final score and say goodbye beta
