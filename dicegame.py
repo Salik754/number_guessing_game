@@ -5,11 +5,21 @@ the winner gets points.
 """
 import random
 
+def get_number(prompt):
+    while True:
+        try:
+            num = int(input(prompt))
+            return num
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
 def roll_dice() -> int:
     """
     Will return a random number between 1 and 20.
     """
-    randnum = random.randint(1, 20)
+    min_num = get_number("Enter the minimum number for the dice: ")
+    max_num = get_number("Enter the maximum number for the dice: ")
+    randnum = random.randint(min_num, max_num)
     return randnum
 
 
@@ -30,8 +40,9 @@ def play():
 player_score = 0
 computer_score = 0
 
- # make a loop first
-while player_score < 3 and computer_score < 3:
+# Play 3 rounds
+for round_num in range(1, 4):
+    print(f"\n--- Round {round_num} ---")
     result = play()
     if result == 1:
         print("You win this round!")
@@ -41,6 +52,10 @@ while player_score < 3 and computer_score < 3:
         computer_score += 1
     else:
         print("It's a tie! No points awarded.")
+
+# Print final score and say goodbye
+print(f"\nFinal score: You {player_score} - Computer {computer_score}")
+print("Thanks for playing! Goodbye!")
     
 
 #print final score and say goodbye beta
