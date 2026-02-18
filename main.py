@@ -1,49 +1,25 @@
-# Import random module to generate a random number
-
+"""
+Making a number guessing game with rounds, 
+"""
+#imported a random number to generate a random number
 import random
 
-# Function to get a valid integer input with error handling
-number = random.randint(1, 100)
-guess = 0
+#function for getting an  integer from the user
+def get_valid_int(prompt):
+    while True:
+         try:
+            return int(input(prompt).strip())
+         except ValueError:
+             print("Please enter a valid integer.")
 
-while guess != number:
-    guess = int(
-        input("Welcome to the number guessing game, guess a number between 1 and 100:")
-    )
-    if guess < number:
-        print("The number that you guessed is too low!")
-    elif guess > number:
-        print("The number that you guessed is too high!")
-    else:
-        print("Congratulations! You've guessed the number correctly!")
+#function to get a valid yes/no response
+def get_valid_yes_no(prompt):
+    while True:
+        choice = input(prompt).strip().lower()
+        if choice == "y" or choice == "n":
+            return (choice)
+        else:
+            print("Please enter 'y' for yes or 'n' for no.")
 
-# Function to get a valid 'y' or 'n' response from the user 
-
-
-# Function to play one round of the game
-
-# Ask for number range
-
-# Ensure low_number is less than high_number
-
-# Ask for number of attempts
-
-# Generate random number
-
-# Track number of attempts
-
-# Loop for user guesses
-
-# Check if guess is too low or too high
-
-# Display success message if guessed correctly
-
-# If max attempts are used up, reveal the correct number
-
-# Main game loop
-
-# Ask for user's name and greet them
-
-# Ask if they want to play again, only accepting 'y' or 'n'
-
-# Run the game
+#A FUNCTION THAT PLAYS one RoUND only
+def play_game
