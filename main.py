@@ -48,3 +48,6 @@ while attempts_used < max_attempts:
         print("Too high!")
     else:
         print(f"Congratulations! You guessed the number in {attempts_used} attempts.")
+    
+#if user runs out of attempts
+print(f"Sorry, you've run out of attempts. The number was {secret_number}.")
