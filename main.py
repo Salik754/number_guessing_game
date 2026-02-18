@@ -35,3 +35,16 @@ max_attempts = get_valid_int("How many attempts do you want? ")
 secret_number = random.randint(low, high)
 #the number of attempts used
 attempts_used = 0
+
+
+#the game loop
+while attempts_used < max_attempts:
+    guess = get_valid_int("Enter your guess: ")
+    attempts_used += 1
+
+    if guess < secret_number:
+        print("Too low!")
+    elif guess > secret_number:
+        print("Too high!")
+    else:
+        print(f"Congratulations! You guessed the number in {attempts_used} attempts.")
