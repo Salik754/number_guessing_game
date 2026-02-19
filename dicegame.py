@@ -5,11 +5,21 @@ the winner gets points.
 """
 import random
 
+def get_number(prompt):
+    while True:
+        try:
+            num = int(input(prompt))
+            return num
+        except ValueError:
+            print("Invalid input. Please enter a number.")
+
 def roll_dice() -> int:
     """
     Will return a random number between 1 and 20.
     """
-    randnum = random.randint(1, 20)
+    min_num = get_number("Enter the minimum number for the dice: ")
+    max_num = get_number("Enter the maximum number for the dice: ")
+    randnum = random.randint(min_num, max_num)
     return randnum
 
 
