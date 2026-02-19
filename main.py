@@ -1,49 +1,64 @@
-# Import random module to generate a random number
-
 import random
 
-# Function to get a valid integer input with error handling
-number = random.randint(1, 100)
-guess = 0
+# Function to safely get an integer from the user
+def get_valid_int(prompt):
+    while True:
+        try:
+            return int(input(prompt).strip())
+        except ValueError:
+            print("Please enter a valid number.")
 
-while guess != number:
-    guess = int(
-        input("Welcome to the number guessing game, guess a number between 1 and 100:")
-    )
-    if guess < number:
-        print("The number that you guessed is too low!")
-    elif guess > number:
-        print("The number that you guessed is too high!")
-    else:
-        print("Congratulations! You've guessed the number correctly!")
+# Function to get a valid y/n response
+def get_yes_no(prompt):
+    while True:
+        choice = input(prompt).strip().lower()
+        if choice == "y" or choice == "n":
+            return choice
+        else:
+            print("Please enter 'y' or 'n' only.")
 
-# Function to get a valid 'y' or 'n' response from the user 
+# Function that plays one round of the game
+def play_game():
+    # Ask for number range
+    low = get_valid_int("Enter the lowest number: ")
+    high = get_valid_int("Enter the highest number: ")
 
+    # Ensure range is valid
+    while high <= low:
+        print("High number must be greater than low number.")
+        high = get_valid_int("Enter the highest number: ")
 
-# Function to play one round of the game
+    # Ask for attempts
+    max_attempts = get_valid_int("How many attempts do you want? ")
 
-# Ask for number range
+    # Generate random number
+    secret_number = random.randint(low, high)
 
-# Ensure low_number is less than high_number
+    attempts_used = 0
 
-# Ask for number of attempts
+    # Guessing loop
+    while attempts_used < max_attempts:
+        guess = get_valid_int("Enter your guess: ")
+        attempts_used += 1
 
-# Generate random number
+        if guess < secret_number:
+            print("Too low!")
+        elif guess > secret_number:
+            print("Too high!")
+        else:
+            print(f"Correct! You guessed it in {attempts_used} attempts.")
+            return
 
-# Track number of attempts
+    # If user runs out of attempts
+    print(f"Out of attempts! The correct number was {secret_number}.")
 
-# Loop for user guesses
+# Main program
+name = input("Enter your name: ").strip()
+print(f"Welcome, {name}! Let's play a guessing game 🎯")
 
-# Check if guess is too low or too high
-
-# Display success message if guessed correctly
-
-# If max attempts are used up, reveal the correct number
-
-# Main game loop
-
-# Ask for user's name and greet them
-
-# Ask if they want to play again, only accepting 'y' or 'n'
-
-# Run the game
+while True:
+    play_game()
+    again = get_yes_no("Do you want to play again? (y/n): ")
+    if again == "n":
+        print("Thanks for playing!")
+        break
