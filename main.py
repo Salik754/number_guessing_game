@@ -48,7 +48,20 @@ while attempts_used < max_attempts:
         print("Too high!")
     else:
         print(f"Congratulations! You guessed the number in {attempts_used} attempts.")
-        return  # Exit the function if the guess is correct
     
 #if user runs out of attempts
 print(f"Sorry, you've run out of attempts. The number was {secret_number}.")
+
+#gonna ask for their name
+name=input("What's your name? ").strip()
+print(f"Welcome to the Number Guessing Game, {name}!")
+
+while True:
+    play_game()
+    #ask if they want to play again
+    again = get_valid_yes_no("Do you want to play again? (y/n): ")
+    #keep playing and asking until they say no
+    if again == "n":
+        print("Thanks for playing! Goodbye!")
+        #break the loop to end the game and print the message 
+        break
