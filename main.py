@@ -43,7 +43,6 @@ def play_game():
     #the number of attempts used
     attempts_used = 0
 
-
     #the game loop
     while attempts_used < max_attempts:
         guess = get_valid_int("Enter your guess: ")
@@ -66,7 +65,7 @@ def play_game():
 
 
 #gonna ask for their name
-name=input("What's your name? ").strip()
+name=input("What's your name? ").strip().title()
 print(f"Welcome to the Number Guessing Game, {name}!")
 
 while True:
